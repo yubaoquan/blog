@@ -1,0 +1,1 @@
+supervisor  E:\code\blog\app

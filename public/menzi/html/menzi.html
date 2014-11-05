@@ -1,0 +1,94 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="../css/css1.css" />
+	<link rel="stylesheet" href="../../common_js/jquery-ui-themes-1.11.2/themes/smoothness/jquery-ui.css">
+
+	<script type="text/javascript" src="../../common_js/ckeditor/ckeditor.js"></script>
+
+	<script type="text/javascript" src="../../common_js/jquery-2.1.1.js"></script>
+	<script src="../../common_js/jquery-ui-1.11.2.custom/jquery-ui.js"></script>
+
+	<script type="text/javascript" src="../js/menzi.js"></script>
+	<script type="text/javascript" src="../js/js2.js"></script>
+
+	<script type="text/javascript" src="../js/zhoumenzi.js"></script>
+	<script type="text/javascript" src="../js/yujiong.js"></script>
+	<script type="text/javascript" src="../js/joke.js"></script>
+	<script type="text/javascript" src="../js/wuya.js"></script>
+	<script type="text/javascript" src="../js/toto.js"></script>
+	<script type="text/javascript" src="../js/variable.js"></script>
+
+</head>
+
+<body onkeydown="BindEnter(event)" onload="pageLoad()">
+	<div id="page-container">
+		<div class="headerPadding">
+			<div id="header">
+				<h1>尿兜聊天模拟器</h1>
+			</div>
+		</div>
+		<div class="mainContent">
+
+			<div class="hello" >
+
+				<p id="hello">
+					<img id="a" src="../images/zhoumenzi.jpg" />
+					你好,我是周闷子 ⊙ˍ⊙ 很高兴陪你聊天
+				</p>
+
+			</div>
+			<div class="padding">
+				<div class="sentence">
+					<div id="content"></div>
+					<!-- <input type="hidden" id="sex"></input>
+				-->
+				<p id="say2who">对闷子说:</p>
+				<div>
+					<textarea rows="6" cols="65" id="iSay" name="editor1"></textarea>
+				</div>
+				<input id="ok" type="submit" value="说好了" onclick="talk()"></input>
+			<!-- <form>
+			-->
+			<p>
+				<input type="radio" name="sendMethod" value="en" onclick="changeSendMethod(this)"/>
+				Enter发送
+			</p>
+			<p>
+				<input type="radio" name="sendMethod" value="ce" onclick="changeSendMethod(this)" checked="checked"/>
+				Ctrl+Enter发送
+			</p>
+			<p>
+				<input type="radio" name="sendMethod" value="ck" onclick="changeSendMethod(this)" />
+				使用CKEditor
+			</p>
+			<!-- </form>--></div>
+	</div>
+</div>
+<div id="sidebar-a">
+	<div class="padding">
+		<h2 id="available">陪聊列表</h2>
+		<h3 id="available">可用陪聊(请单击选择陪聊)</h3>
+		<div id="onlineUserDiv" class="online">
+			<p id="zhoumenzi" onclick="selectPeiliao(this)" title="周闷子好无聊xxx">周闷子</p>
+			<p id="yujiong" onclick="selectPeiliao(this)" >玉扃</p>
+			<p id="wuya" onclick="selectPeiliao(this)" >乌鸦</p>
+			<p id="toto" onclick="selectPeiliao(this)" >2TO</p>
+		</div>
+		<h3 id="unavailable">开发中陪聊</h3>
+		<div class="offline" onclick="sorryInfo()">
+			<p>丁丁</p>
+			<p>贝勒</p>
+			<p>贱龙</p>
+			<p>磊子</p>
+			<p>凌风</p>
+			<p>安紫...</p>
+		</div>
+	</div>
+	<div class="gif">
+		<img id="bili" src="../images/bili.gif"/>
+	</div>
+</div>
+</div>
+</body>
+<html>
