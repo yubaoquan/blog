@@ -80,9 +80,9 @@ function pageLoad() {
 			effect: "explode",
 			delay: 250
 		}
-	} );
-	//abc();
+	});
 }
+
 
 //生成[0,n)之间的随机数;
 function rdm(n) {
