@@ -4,6 +4,7 @@ peiliaoList.zhoumenzi = zhoumenzi;
 peiliaoList.yujiong = yujiong;
 peiliaoList.wuya = wuya;
 peiliaoList.toto = toto;
+peiliaoList.xiaolong = xiaolong;
 
 //=========================全局变量============================================
 //发送信息是的快捷键方式;

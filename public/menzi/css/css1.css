@@ -87,8 +87,6 @@ body {
 	filter:alpha(Opacity=80);
 	-moz-opacity:0.8;
 	opacity: 0.8;
-	width: 100px;
-	height: 30px;
-	 background: black;
+	background: #19B6E1;
 	
 }

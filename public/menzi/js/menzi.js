@@ -69,20 +69,32 @@ function pageLoad() {
 	currentPeiliaoElement = document.getElementById("zhoumenzi");
 	selectPeiliao(currentPeiliaoElement);
 	sendMethod = "ce";
-	var zhoumenziDesc = "<div class = tooltip>无聊的闷子</div>";
-	$( "#zhoumenzi" ).tooltip( {
-		content: zhoumenziDesc  ,
-		show: {
-			effect: "slideDown",
-			delay: 250
-		},
-		hide: {
-			effect: "explode",
-			delay: 250
-		}
-	});
+	initTooltip();
 }
 
+//初始化陪聊名片;
+function initTooltip() {
+	var availablePeiliaos = $('#availablePeiliaos').children();
+	console.log('totally '+ availablePeiliaos.length + 'peiliaos');
+	for (var i = 0; i < availablePeiliaos.length; i++) {
+		var peiliaoID = availablePeiliaos[i].id;
+		console.log('init ' + peiliaoID);
+		var peiliao = peiliaoList[peiliaoID];
+		var peiliaoDescWrapper = '<div class = tooltip>' + peiliao.desc + '</div>'
+		var selector = '#' + peiliaoID;
+		$(selector).tooltip({
+			content: peiliaoDescWrapper  ,
+			show: {
+				effect: "slideDown",
+				delay: 2
+			},
+			hide: {
+				effect: "explode",
+				delay: 1
+			}
+		});
+	}
+}
 
 //生成[0,n)之间的随机数;
 function rdm(n) {
@@ -155,6 +167,7 @@ function selectGender(obj) {
 	//alert("非常抱歉,我自己关不上,请把我关了,谢谢!");
 }
 
+//设置用户的性别;
 function setGender(value) {
 	userGender = value;
 }

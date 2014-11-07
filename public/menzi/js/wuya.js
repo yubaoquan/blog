@@ -1,8 +1,11 @@
 //=========================创建乌鸦角色=======================================
 var wuya = {};
 
-//乌鸦的名字:
+//乌鸦的名字;
 wuya.name = "乌小六";
+
+//乌鸦的名片;
+wuya.desc = '铁汉⑥';
 
 //乌鸦的欢迎语;
 wuya.hello = "卧槽!卧槽!hhhhuuuooo!";
@@ -30,7 +33,7 @@ wuya.morningWords = wuyaMorning;
 wuya.joke = joke;
 
 //乌鸦的说话方式;
-function wuyaSay(whatUSay) {
+wuya.say = function (whatUSay) {
 	if (whatUSay.indexOf("早上好") != -1)  {
 		return getASentence(wuyaMorning);
 	} 
@@ -40,5 +43,4 @@ function wuyaSay(whatUSay) {
 	else {
 		return getASentence(wuyaWords);
 	}
-}
-wuya.say = wuyaSay;
+};

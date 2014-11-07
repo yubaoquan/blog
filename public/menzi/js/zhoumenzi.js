@@ -4,6 +4,9 @@ var zhoumenzi = {};
 //闷子的名字;
 zhoumenzi.name = "周闷子";
 
+//闷子的名片;
+zhoumenzi.desc = '无聊的闷子';
+
 //闷子的欢迎语;
 zhoumenzi.hello = "你好,我是周闷子 ⊙ˍ⊙ 很高兴陪你聊天";
 
@@ -15,7 +18,7 @@ menziWords[2] = "你一脸!";
 zhoumenzi.words = menziWords;
 
 //闷子的说话方式;
-function menziSay(whatUSay) {
+zhoumenzi.say = function (whatUSay) {
 	var words = menziWords;
 	var wordIndex = rdm(words.length);
 	var peiliaoWord = words[wordIndex];
@@ -27,5 +30,4 @@ function menziSay(whatUSay) {
 		}
 	}
 	return peiliaoWord;
-}
-zhoumenzi.say = menziSay;
+};

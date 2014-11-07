@@ -17,8 +17,15 @@
 	<script type="text/javascript" src="../js/joke.js"></script>
 	<script type="text/javascript" src="../js/wuya.js"></script>
 	<script type="text/javascript" src="../js/toto.js"></script>
+	<script type="text/javascript" src="../js/xiaolong.js"></script>
 	<script type="text/javascript" src="../js/variable.js"></script>
 
+	<script>
+		$(function() {
+			$( "#files" ).selectmenu();
+
+		});
+	</script>
 </head>
 
 <body onkeydown="BindEnter(event)" onload="pageLoad()">
@@ -67,23 +74,37 @@
 </div>
 <div id="sidebar-a">
 	<div class="padding">
-		<h2 id="available">陪聊列表</h2>
+		<h2 id="peiliaoList">陪聊列表</h2>
+
 		<h3 id="available">可用陪聊(请单击选择陪聊)</h3>
-		<div id="onlineUserDiv" class="online">
-			<p id="zhoumenzi" onclick="selectPeiliao(this)" title="周闷子好无聊xxx">周闷子</p>
-			<p id="yujiong" onclick="selectPeiliao(this)" >玉扃</p>
-			<p id="wuya" onclick="selectPeiliao(this)" >乌鸦</p>
-			<p id="toto" onclick="selectPeiliao(this)" >2TO</p>
+		<div id="availablePeiliaos" class="online">
+			<p id="zhoumenzi" onclick="selectPeiliao(this)" title="陪聊名片加载失败">周闷子</p>
+			<p id="yujiong" onclick="selectPeiliao(this)" title='陪聊名片加载失败'>玉扃</p>
+			<p id="wuya" onclick="selectPeiliao(this)" title='陪聊名片加载失败'>乌鸦</p>
+			<p id="toto" onclick="selectPeiliao(this)" title='陪聊名片加载失败'>2TO</p>
+			<p id="xiaolong" onclick="selectPeiliao(this)" title='陪聊名片加载失败'>小龙</p>
 		</div>
 		<h3 id="unavailable">开发中陪聊</h3>
 		<div class="offline" onclick="sorryInfo()">
+			<p>阿名</p>
 			<p>丁丁</p>
 			<p>贝勒</p>
-			<p>贱龙</p>
 			<p>磊子</p>
 			<p>凌风</p>
+			<p>白菜</p>
 			<p>安紫...</p>
 		</div>
+		<!-- <select name="files" id="files">
+			<optgroup label="Scripts" id="availablePeiliaos" >
+				<option value="jquery" id="zhoumenzi" title="陪聊名片加载失败" onmouseover="function(){alert('mouse over')}">jQuery.js</option>
+				<option value="jqueryui">ui.jQuery.js</option>
+			</optgroup>
+			<optgroup label="Other files">
+				<option value="somefile">Some unknown file</option>
+				<option value="someotherfile">Some other file with a very long option text</option>
+			</optgroup>
+		</select> -->
+
 	</div>
 	<div class="gif">
 		<img id="bili" src="../images/bili.gif"/>
