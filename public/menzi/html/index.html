@@ -10,9 +10,10 @@
 
 <script type="text/javascript">
 $(document).ready(function () {	
-	$('#slidebottom button').click(function() {
-		$(this).next().slideToggle();
-	});
+	alert('ready');
+	// $('#slidebottom button').click(function() {
+	// 	$(this).next().slideToggle();
+	// });
 
 	$( document ).tooltip({
 			show: {
@@ -40,6 +41,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function(){
+	alert('ul');
 	$('ul', this).mouseover(function(){
         $("#category").animate({left:'200px'}, 500);
     });
