@@ -4,10 +4,12 @@
 	<link rel="stylesheet" href="../css/css1.css" />
 	<link rel="stylesheet" href="../../common_js/jquery-ui-themes-1.11.2/themes/smoothness/jquery-ui.css">
 
-	<script type="text/javascript" src="../../common_js/ckeditor/ckeditor.js"></script>
+	<script src="../../common_js/ckeditor/ckeditor.js"></script>
 
-	<script type="text/javascript" src="../../common_js/jquery-2.1.1.js"></script>
-	<script src="../../common_js/jquery-ui-1.11.2.custom/jquery-ui.js"></script>
+	<!--<script type="text/javascript" src="../../common_js/jquery-2.1.1.js"></script>-->
+	<!--<script src="../../common_js/jquery-ui-1.11.2.custom/jquery-ui.js"></script>-->
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+	<script src="http://libs.useso.com/js/jqueryui/1.10.4/jquery-ui.js"></script>
 
 	<script type="text/javascript" src="../js/menzi.js"></script>
 	<script type="text/javascript" src="../js/js2.js"></script>
@@ -20,12 +22,6 @@
 	<script type="text/javascript" src="../js/xiaolong.js"></script>
 	<script type="text/javascript" src="../js/variable.js"></script>
 
-	<script>
-		$(function() {
-			$( "#files" ).selectmenu();
-
-		});
-	</script>
 </head>
 
 <body onkeydown="BindEnter(event)" onload="pageLoad()">
@@ -94,17 +90,6 @@
 			<p>白菜</p>
 			<p>安紫...</p>
 		</div>
-		<!-- <select name="files" id="files">
-			<optgroup label="Scripts" id="availablePeiliaos" >
-				<option value="jquery" id="zhoumenzi" title="陪聊名片加载失败" onmouseover="function(){alert('mouse over')}">jQuery.js</option>
-				<option value="jqueryui">ui.jQuery.js</option>
-			</optgroup>
-			<optgroup label="Other files">
-				<option value="somefile">Some unknown file</option>
-				<option value="someotherfile">Some other file with a very long option text</option>
-			</optgroup>
-		</select> -->
-
 	</div>
 	<div class="gif">
 		<img id="bili" src="../images/bili.gif"/>
