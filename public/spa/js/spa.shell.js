@@ -35,8 +35,10 @@ spa.shell = (function () {
 		chat_extended_title	:'Click to retract.',
 		chat_retracted_title:'Click to extend.',
 		anchor_schema_map 	: {
-			open	:false,
-			closed 	:true
+			chat : {
+				open	:true,
+				closed 	:true
+			}
 		}
 	};
 	var stateMap = {
@@ -163,16 +165,6 @@ console.log('after copyAnchorMap');
 
 		//Begin attempt to update URI ; revert if not successful
 		try {
-			//设置这个使setAnchor修改chat属性时不抛出错误,
-			//如果没有configModule,则setAnchor时出现错误,错误信息如下:
-			//Anchor Schema Reject: Independent key |chat| not authorized by anchor schema
-
-			$.uriAnchor.configModule({
-				schema_map : {
-					chat:{open:true,closed:true}
-				}
-			});
-
 			$.uriAnchor.setAnchor(anchor_map_revise);
 			
 		} catch (error) {
@@ -261,14 +253,11 @@ console.log('after changeAnchorPart');
 //------------------------------Begin public methods------------------------
 	initModule = function ($container) {
 		//configure uriAnchor to use our schema 
-		
-
-		
-
 		stateMap.$container = $container;
 		$container.html( configMap.main_html );
 		setJqueryMap();
 		stateMap.is_chat_retracted = true;
+
 		jqueryMap.$chat
 		.attr('title', configMap.chat_retracted_title)
 		.click(onClickChat);
@@ -278,6 +267,9 @@ console.log('after changeAnchorPart');
 				schema_map : configMap.anchor_schema_map
 			}
 		);
+
+		spa.chat.configModule({});
+		spa.chat.initModule(jqueryMap.$chat);
 
 		$(window)
 			.bind('hashchange', onHashchange)
