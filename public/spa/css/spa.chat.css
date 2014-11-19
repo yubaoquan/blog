@@ -18,7 +18,7 @@
 	z-index: 		1;
 }
 
-.spa-chat-head .spa-chat-closer {
+.spa-chat-head, .spa-chat-closer {
 	position: 			absolute;
 	top: 				0;
 	height: 			2em;
@@ -44,11 +44,11 @@
 }
 
 .spa-chat-closer:hover {
-	background: #888;
+	background: #800;
 }
 
 .spa-chat-head-toggle {
-	position: absolute;
+	position: 		absolute;
 	top: 			0;
 	left: 			0;
 	width: 			2em;
@@ -122,6 +122,6 @@
 	color: 				#ff0;
 }
 
-.spa-chat-head .spa-chat-head-toggle {
+.spa-chat-head:hover .spa-chat-head-toggle {
 	background: #aaa;
 }
