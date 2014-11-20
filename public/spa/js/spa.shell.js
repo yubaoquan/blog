@@ -31,6 +31,7 @@ spa.shell = (function () {
 		chat_retract_time	:300,
 		chat_extend_height	:450,
 		chat_retract_height	:15,
+		resize_interval : 200,
 		chat_extended_title	:'Click to retract.',
 		chat_retracted_title:'Click to extend.',
 		anchor_schema_map 	: {
@@ -41,13 +42,15 @@ spa.shell = (function () {
 		}
 	};
 	var stateMap = {
-		anchor_map 			: {}
+		$container : undefined,
+		anchor_map 	: {},
+		resize_idto : undefined
 	};
 	var jqueryMap = {};
 
 	var copyAnchorMap, setJqueryMap, toggleChat, 
 		changeAnchorPart, onHashchange, onClickChat, 
-		setChatAnchor, initModule;
+		setChatAnchor, onResize, initModule;
 //------------------------------End module scope variables------------------------
 
 //------------------------------Begin utility methods------------------------
@@ -57,6 +60,20 @@ spa.shell = (function () {
 		return $.extend(true, {}, stateMap.anchor_map);
 	};
 //------------------------------End utility methods------------------------
+	
+	onResize = function () {
+		if (stateMap.resize_idto) {
+			return true;
+		}
+		spa.chat.handleResize();
+		stateMap.resize_idto = setTimeout(
+			function () {
+				stateMap.resize_idto = undefined;
+			},
+			configMap.resize_interval
+		);
+		return true;
+	};
 
 //------------------------------Begin dom methods------------------------
 
@@ -69,12 +86,12 @@ spa.shell = (function () {
 	};
 
 	changeAnchorPart = function (arg_map) {
-		console.log('changeAnchorPart');
+// console.log('changeAnchorPart');
 // alert('changeAnchorPart');
 		var anchor_map_revise = copyAnchorMap();
 		var bool_return = true;
 		var key_name, key_name_dep;
-console.log('after copyAnchorMap');
+// console.log('after copyAnchorMap');
 // alert('after copyAnchorMap');
 		//Begin merge change into anchor map
 		KEYVAL:
@@ -226,6 +243,7 @@ console.log('after changeAnchorPart');
 		spa.chat.initModule(jqueryMap.$container);
 
 		$(window)
+			.bind('resize', onResize)
 			.bind('hashchange', onHashchange)
 			.trigger('hashchange');
 	};

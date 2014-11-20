@@ -20,12 +20,12 @@ var
 		+ '<div class="spa-chat">'
 			+ '<div class="spa-chat-head">'
 				+ '<div class="spa-chat-head-toggle">+</div>'
-				+ '<div class="spa-chat-head-title">Chat</div>'
-					// + 'Chat'
-				// + '</div>'
-			
+				+ '<div class="spa-chat-head-title">'//Chat</div>'
+					+ 'Chat'
+				+ '</div>'
+			 + '</div>'
 				+ '<div class="spa-chat-closer">x</div>'
-			+ '</div>'
+			// + '</div>'
 			+ '<div class="spa-chat-sizer">'
 				+ '<div class="spa-chat-msgs"></div>'
 				+ '<div class="spa-chat-box">'
@@ -47,6 +47,8 @@ var
 			slider_opened_title : 	true,
 			slider_closed_title : 	true,
 
+			
+
 			chat_model : 		true,
 			people_model : 		true,
 			set_chat_anchor : 	true
@@ -54,10 +56,15 @@ var
 
 		slider_open_time : 	250,
 		slider_close_time : 250,
-		slider_opened_em : 	16,
+		slider_opened_em : 	18,
 		slider_closed_em : 	2,
+		slider_opened_min_em : 10,
+		window_height_min_em : 20,
 		slider_opened_title : 'Click to close',
 		slider_closed_title : 'Click to open',
+
+		
+
 
 		chat_model : 		null,
 		people_model : 		null,
@@ -72,12 +79,15 @@ var
 		slider_hidden_px	: 	0,
 		slider_closed_px 	: 	0,
 		slider_opened_px 	: 	0
+
+		
 	},
 
 	jqueryMap = {},
 
 	setJqueryMap, getEmSize, setPxSizes, setSliderPosition,
-	onClickToggle, configModule, initModule;
+	onClickToggle, configModule, initModule, removeSlider,
+	handleResize;
 //---------------------End module scope variables------------------------------
 //---------------------Begin utility methods-----------------------------------
 	getEmSize = function (elem) {
@@ -86,6 +96,8 @@ var
 		);
 	};
 //---------------------End utility methods-------------------------------------
+
+
 //---------------------Begin DOM methods---------------------------------------
 	setJqueryMap = function () {
 		// var $container = stateMap.$container;
@@ -106,13 +118,23 @@ var
 	};
 
 	setPxSizes = function () {
-		var px_per_em, opened_height_em;
+		var px_per_em, window_height_em, opened_height_em;
 		px_per_em = getEmSize(jqueryMap.$slider.get(0));
-		opened_height_em = configMap.slider_opened_em;
+		window_height_em = Math.floor(
+			($(window).height() / px_per_em) + 0.5
+		);
+
+
+		opened_height_em = window_height_em > configMap.window_height_min_em 
+		? configMap.slider_opened_em 
+		: configMap.slider_opened_min_em;
+		//configMap.slider_opened_em;
 
 		stateMap.px_per_em = px_per_em;
 		stateMap.slider_closed_px = configMap.slider_closed_em * px_per_em;
+// alert('opened_height_em:' + opened_height_em + '\npx_per_em:' + px_per_em);
 		stateMap.slider_opened_px = opened_height_em * px_per_em;
+// alert('setPxSizes:' + stateMap.slider_opened_px);
 		jqueryMap.$sizer.css(
 			{
 				height: (opened_height_em - 2) * px_per_em
@@ -131,6 +153,7 @@ var
 		//prepare animate parameters
 		switch (position_type) {
 			case 'opened' : 
+// alert(stateMap.slider_opened_px);
 			height_px = stateMap.slider_opened_px;
 			animate_time = configMap.slider_open_time;
 			slider_title = configMap.slider_opened_title;
@@ -145,6 +168,7 @@ var
 		break;
 
 		case 'closed' :
+// alert(stateMap.slider_closed_px);
 			height_px = stateMap.slider_closed_px;
 			animate_time = configMap.slider_close_time;
 			slider_title = configMap.slider_closed_title;
@@ -155,6 +179,7 @@ var
 		}
 		//animate slider position change
 		stateMap.position_type = '';
+// alert(height_px);
 		jqueryMap.$slider.animate(
 			{
 				height : height_px
@@ -169,6 +194,21 @@ var
 				}
 			}
 		);
+		return true;
+	};
+
+	handleResize = function () {
+		if (!jqueryMap.$slider) {
+			return false;
+		}
+		setPxSizes();
+		if (stateMap.position_type === 'opened') {
+			jqueryMap.$slider.css(
+			{
+				height : stateMap.slider_opened_px
+			}
+			);
+		}
 		return true;
 	};
 
@@ -207,9 +247,28 @@ var
 		return true;
 	};
 
+	removeSlider = function () {
+		if (jqueryMap.$slider) {
+			jqueryMap.$slider.remove();
+			jqueryMap = {};
+		}
+		stateMap.$append_target = null;
+		stateMap.position_type = 'closed';
+
+		configMap.chat_model = null;
+		configMap.people_model = null;
+		configMap.set_chat_anchor = null;
+
+		return true;
+	};
+
+	
+
 	return {
 		setSliderPosition : setSliderPosition,
 		configModule 	: configModule,
-		initModule 		: initModule
+		initModule 		: initModule,
+		removeSlider	: removeSlider,
+		handleResize	: handleResize
 	};
 }());
