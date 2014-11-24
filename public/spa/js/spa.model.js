@@ -92,6 +92,7 @@ spa.model = (function () {
       }
 
       stateMap.people_cid_map[cid] = person;
+console.log('insert');
       stateMap.people_db.insert(person);
       return person;
     };
@@ -122,6 +123,7 @@ spa.model = (function () {
       };
 
       get_db = function () {
+alert('get_db');
         return stateMap.people_db;
       };
 
@@ -130,6 +132,7 @@ spa.model = (function () {
       };
 
       login = function ( name ) {
+console.log('login');
         var sio = isFakeData ? spa.fake.mockSio : spa.data.getSio();
 
         stateMap.user = makePerson(
@@ -226,7 +229,7 @@ spa.model = (function () {
               chatee = person;
             }
 
-            makePerson(make_person_map);
+            //makePerson(make_person_map);
           }
           stateMap.people_db.sort('name');
           if (chatee && ! is_chatee_online) {

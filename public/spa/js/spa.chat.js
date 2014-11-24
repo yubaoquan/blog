@@ -46,45 +46,45 @@ var
     + '</div>',
 
     settable_map : {
-      slider_open_time     :    true,
-      slider_close_time    :      true,
-      slider_opened_em     :      true,
-      slider_closed_em     :      true,
-      slider_opened_title  :      true,
-      slider_closed_title  :      true,
+      slider_open_time     : true,
+      slider_close_time    : true,
+      slider_opened_em     : true,
+      slider_closed_em     : true,
+      slider_opened_title  : true,
+      slider_closed_title  : true,
 
       
 
-      chat_model:    true,
-      people_model:    true,
-      set_chat_anchor :   true
+      chat_model      : true,
+      people_model    : true,
+      set_chat_anchor : true
     },
 
-    slider_open_time :   250,
-    slider_close_time : 250,
-    slider_opened_em :   18,
-    slider_closed_em :   2,
-    slider_opened_min_em : 10,
-    window_height_min_em : 20,
-    slider_opened_title : 'Tap to close',
-    slider_closed_title : 'Tap to open',
+    slider_open_time      : 250,
+    slider_close_time     : 250,
+    slider_opened_em      : 18,
+    slider_closed_em      : 2,
+    slider_opened_min_em  : 10,
+    window_height_min_em  : 20,
+    slider_opened_title   : 'Tap to close',
+    slider_closed_title   : 'Tap to open',
 
     
 
 
-    chat_model :     null,
-    people_model :     null,
-    set_chat_anchor :   null
+    chat_model      : null,
+    people_model    : null,
+    set_chat_anchor : null
   },
 
   stateMap = {
     // $container : null
-    $append_target     :   null,
-    position_type     :  'closed',
-    px_per_em       :  0,
-    slider_hidden_px  :   0,
-    slider_closed_px   :   0,
-    slider_opened_px   :   0
+    $append_target   : null,
+    position_type    : 'closed',
+    px_per_em        : 0,
+    slider_hidden_px : 0,
+    slider_closed_px : 0,
+    slider_opened_px : 0
 
     
   },
@@ -326,7 +326,7 @@ alert('onSubmitMsg');
 
     jqueryMap.$list_box
       .find('.spa-chat-list-name')
-      .removeClass('.spa-x-select')
+      .removeClass('spa-x-select')
       .end()
       .find('[data-id=' + arg_map.new_chatee.id + ']')
       .addClass('spa-x-select');
@@ -359,7 +359,7 @@ alert('onSubmitMsg');
           + spa.util_b.encodeHtml(person.name) + '</div>'; 
       }
     );
-
+alert(list_html);
     if (!list_html) {
       list_html = String()
         + '<div class="spa-chat-list-note">'
