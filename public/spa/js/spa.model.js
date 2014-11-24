@@ -8,7 +8,7 @@
   browser : true, continue : true,
   devel : true, indent : 2, maxerr : 50,
   newcap : true, nomen : true, plusplus : true,
-  regexp : true, sloppy : true, vars : true,
+  regexp : true, sloppy : true, vars : false,
   white : true
 */
 /*global TAFFY, $, spa*/
@@ -29,9 +29,9 @@ spa.model = (function () {
       is_connected   : false
     },
 
-    isFakeData = true,
+      isFakeData = true,
 
-    personProto, makePerson, people, initModule,
+  personProto, makePerson, people, initModule,
     makeCid, clearPeopleDb, completeLogin, 
     chat, removePerson;
 
@@ -117,8 +117,7 @@ spa.model = (function () {
     people = (function () {
       var get_by_cid, get_db, get_user, login, logout;
 
-      get_by_cid = function () {
-console.log('get by cid: ');
+      get_by_cid = function (cid) {
         return stateMap.people_cid_map[ cid ];
       };
 
@@ -157,13 +156,14 @@ console.log('get by cid: ');
       };
 
       logout = function () {
-        var is_removed, user = stateMap.user;
+        var user = stateMap.user;
         chat._leave();
-        is_removed = removePerson(user);
+        // is_removed = removePerson(user);
         stateMap.user = stateMap.anon_user;
+        clearPeopleDb();
 
         $.gevent.publish( 'spa-logout', [user]);
-        return is_removed;
+        // return is_removed;
       };
 
       return {
@@ -193,7 +193,7 @@ console.log('get by cid: ');
 
         _update_list = function (arg_list) {
           var 
-            i, person_map, make_person_map,
+            i, person_map, make_person_map,person,
             people_list = arg_list[0],
             is_chatee_online = false;
 
@@ -219,8 +219,11 @@ console.log('get by cid: ');
               name : person_map.name
             };
 
+            person = makePerson(make_person_map);
+
             if (chatee && chatee.id === make_person_map.id) {
               is_chatee_online = true;
+              chatee = person;
             }
 
             makePerson(make_person_map);
@@ -333,7 +336,7 @@ console.log('get by cid: ');
         };
 
       return {
-        _leeave   : _leave_chat,
+        _leave   : _leave_chat,
         get_chatee   : get_chatee,
         join     : join_chat,
         send_msg   : send_msg,
@@ -344,7 +347,7 @@ console.log('get by cid: ');
     }());
 
     initModule = function () {
-      var i, people_list, person_map;
+      var people_list, person_map;
 
       stateMap.anon_user = makePerson(
         {

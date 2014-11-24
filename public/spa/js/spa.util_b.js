@@ -17,8 +17,8 @@ spa.util_b = (function () {
   //---------------Begin module scope variables--------------
   var 
     configMap = {
-      regex_encode_html : /[&"'><]/g,
-      regex_enncode_noamp : /"'></g,
+      regex_encode_html   : /[&"'><]/g,
+      regex_enncode_noamp : /["'><]/g,
       html_encode_map : {
         '&' : '&#38;',
         '"' : '&#34;',
@@ -37,7 +37,7 @@ spa.util_b = (function () {
 
   //-------------------Begin utility methods------------------------
   decodeHtml = function (str) {
-    return $('<div>').html(str || '').text();
+    return $('<div/>').html(str || '').text();
   };
 
   encodeHtml = function (input_arg_str, exclude_amp) {
@@ -62,8 +62,7 @@ spa.util_b = (function () {
 
   getEmSize = function (elem) {
     return Number(
-      getComputedStyle(elem, '').fontSize.match(/\d*\.?\d*/)[0]
-    );
+      getComputedStyle(elem, '').fontSize.match(/\d*\.?\d*/)[0]);
   };
 
   return {
