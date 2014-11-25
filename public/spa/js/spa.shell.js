@@ -45,18 +45,18 @@ spa.shell = (function () {
         closed   :true
       }
     }
-  };
-  var stateMap = {
+  },
+   stateMap = {
     $container : undefined,
     anchor_map   : {},
     resize_idto : undefined
-  };
-  var jqueryMap = {};
+  },
+   jqueryMap = {},
 
-  var copyAnchorMap, setJqueryMap, toggleChat, 
-    changeAnchorPart, onHashchange, onClickChat, 
-    onTapAcct, onLogin, onLogout,
-    setChatAnchor, onResize, initModule;
+  copyAnchorMap, setJqueryMap, toggleChat, 
+  changeAnchorPart, onHashchange, onClickChat, 
+  onTapAcct, onLogin, onLogout,
+  setChatAnchor, onResize, initModule;
 //------------------------------End module scope variables------------------------
 
 //------------------------------Begin utility methods------------------------
@@ -116,9 +116,9 @@ spa.shell = (function () {
   changeAnchorPart = function (arg_map) {
 // console.log('changeAnchorPart');
 // alert('changeAnchorPart');
-    var anchor_map_revise = copyAnchorMap();
-    var bool_return = true;
-    var key_name, key_name_dep;
+    var anchor_map_revise = copyAnchorMap(),
+     bool_return = true,
+     key_name, key_name_dep;
 // console.log('after copyAnchorMap');
 // alert('after copyAnchorMap');
     //Begin merge change into anchor map
@@ -246,7 +246,7 @@ console.log('click');
     );
 console.log('after changeAnchorPart');
     return false;
-  }
+  };
 //------------------------------End event handlers------------------------
 
 //------------------------------Begin public methods------------------------
@@ -269,6 +269,12 @@ console.log('after changeAnchorPart');
       people_model : spa.model.people
     });
     spa.chat.initModule(jqueryMap.$container);
+
+    spa.avtr.configModule({
+      chat_model : spa.model.chat,
+      people_model : spa.model.people
+    });
+    spa.avtr.initModule(jqueryMap.$nav);
 
     $(window)
       .bind('resize', onResize)
