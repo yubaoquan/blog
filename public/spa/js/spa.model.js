@@ -92,7 +92,7 @@ spa.model = (function () {
       }
 
       stateMap.people_cid_map[cid] = person;
-console.log('insert');
+// console.log('insert:');
       stateMap.people_db.insert(person);
       return person;
     };
@@ -123,7 +123,6 @@ console.log('insert');
       };
 
       get_db = function () {
-alert('get_db');
         return stateMap.people_db;
       };
 
@@ -132,7 +131,7 @@ alert('get_db');
       };
 
       login = function ( name ) {
-console.log('login');
+// console.log('login');
         var sio = isFakeData ? spa.fake.mockSio : spa.data.getSio();
 
         stateMap.user = makePerson(
@@ -177,15 +176,6 @@ console.log('login');
         logout     : logout
       };
     }());
-
-    // people = {
-    //   get_db : function () {
-    //     return stateMap.people_db;
-    //   },
-    //   get_cid_map : function () {
-    //     return stateMap.people_cid_map;
-    //   }
-    // };
 
     chat = (function () {
       var
@@ -360,21 +350,6 @@ console.log('login');
         }
       );
       stateMap.user = stateMap.anon_user;
-
-      // if (isFakeData) {
-      //   people_list = spa.fake.getPeopleList();
-      //   for (i = 0; i < people_list.length; i++) {
-      //     person_map = people_list[i];
-      //     makePerson(
-      //       {
-      //         cid   : person_map._id,
-      //         css_map : person_map.css_map,
-      //         id     : person_map._id,
-      //         name   : person_map.name
-      //       }
-      //     );
-      //   }
-      // }
     };
 
   return {

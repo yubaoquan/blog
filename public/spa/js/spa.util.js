@@ -14,7 +14,7 @@ spa.util = (function () {
     var error = new Error();
     error.name = name_text;
     error.messaage = msg_text;
-    if (date) {
+    if (data) {
       error.date = data;
     }
     return error;
@@ -26,7 +26,9 @@ spa.util = (function () {
       settable_map = arg_map.settable_map,
       config_map = arg_map.config_map,
       key_name, error;
-
+if (!config_map) {
+  console.log(arg_map);
+}
     for (key_name in input_map) {
       if (input_map.hasOwnProperty(key_name)) {
         if (settable_map.hasOwnProperty(key_name)) {

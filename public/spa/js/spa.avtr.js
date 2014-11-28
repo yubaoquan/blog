@@ -51,6 +51,7 @@ spa.avtr = (function() {
   };
 
   updateAvatar = function ($target) {
+// console.log('updateAvatar');
     var css_map, person_id;
 
     css_map = {
@@ -67,6 +68,7 @@ spa.avtr = (function() {
   };
 
   onTapNav = function (event) {
+console.log('onTapNav');
     var 
       css_map,
       $target = $(event.elem_target).closest('.spa-avtr-box');
@@ -82,6 +84,7 @@ spa.avtr = (function() {
   };
 
   onHeldstartNav = function (event) {
+console.log('onHeldstartNav');
     var
       offset_target_map, offset_nav_map,
       $target = $(event.elem_target).closest('.spa-avtr-box');
@@ -104,6 +107,7 @@ spa.avtr = (function() {
   };
 
   onHeldmoveNav = function (event) {
+console.log('onHeldmoveNav');
     var drag_map = stateMap.drag_map;
     if (!drag_map) {
       return false;
@@ -155,6 +159,7 @@ spa.avtr = (function() {
   };
 
   onListchange = function (event) {
+    // console.log('avtr onListchange');
     var
       $nav = $(this),
       people_db = configMap.people_model.get_db(),
@@ -167,11 +172,12 @@ spa.avtr = (function() {
     if (user.get_is_anon()) {
       return false;
     }
-
-    people_db.each(
+// console.log();
+    people_db().each(
       function (person, idx) {
         var class_list;
-        if (person.get_is_anon) {
+        if (person.get_is_anon()) {
+          console.log('is anon');
           return true;
         }
         class_list = ['spa-avtr-box'];
@@ -190,6 +196,7 @@ spa.avtr = (function() {
           .prop('title', spa.util_b.encodeHtml(person.name))
           .text(person.name)
           .appendTo($nav);
+// console.log('add one');
       }
     );
   };
@@ -202,7 +209,7 @@ spa.avtr = (function() {
     spa.util.setConfigMap({
       input_map : input_map,
       settable_map : configMap.settable_map,
-      configMap : configMap
+      config_map : configMap
     });
     return true;
   };

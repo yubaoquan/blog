@@ -71,7 +71,7 @@ spa.fake = ( function () {
     };
 
     emit_sio = function (msg_type, data) {
-      console.log('emit');
+      // console.log('emit');
       var person_map, i;
       if (msg_type === 'adduser' && callback_map.userupdate) {
         setTimeout(function () {

@@ -143,9 +143,7 @@ var
 
     stateMap.px_per_em = px_per_em;
     stateMap.slider_closed_px = configMap.slider_closed_em * px_per_em;
-// alert('opened_height_em:' + opened_height_em + '\npx_per_em:' + px_per_em);
     stateMap.slider_opened_px = opened_height_em * px_per_em;
-// alert('setPxSizes:' + stateMap.slider_opened_px);
     jqueryMap.$sizer.css(
       {
         height: (opened_height_em - 2) * px_per_em
@@ -172,7 +170,6 @@ var
     //prepare animate parameters
     switch (position_type) {
       case 'opened' : 
-// alert(stateMap.slider_opened_px);
       height_px = stateMap.slider_opened_px;
       animate_time = configMap.slider_open_time;
       slider_title = configMap.slider_opened_title;
@@ -188,7 +185,6 @@ var
     break;
 
     case 'closed' :
-// alert(stateMap.slider_closed_px);
       height_px = stateMap.slider_closed_px;
       animate_time = configMap.slider_close_time;
       slider_title = configMap.slider_closed_title;
@@ -199,7 +195,6 @@ var
     }
     //animate slider position change
     stateMap.position_type = '';
-// alert(height_px);
     jqueryMap.$slider.animate(
       {
         height : height_px
@@ -266,7 +261,6 @@ var
   };
 
   onTapToggle = function (event) {
-// alert('onTapToggle');
     var set_chat_anchor = configMap.set_chat_anchor;
     if (stateMap.position_type === 'opened') {
       set_chat_anchor('closed');
@@ -278,7 +272,6 @@ var
   };
 
   onSubmitMsg = function (event) {
-alert('onSubmitMsg');
     var msg_text = jqueryMap.$input.val();
     if (msg_text.trim() === '') {
       return false;
@@ -359,7 +352,6 @@ alert('onSubmitMsg');
           + spa.util_b.encodeHtml(person.name) + '</div>'; 
       }
     );
-alert(list_html);
     if (!list_html) {
       list_html = String()
         + '<div class="spa-chat-list-note">'
@@ -439,9 +431,7 @@ alert(list_html);
     jqueryMap.$head.bind('utap', onTapToggle);
     jqueryMap.$list_box.bind('utap', onTapList);
     jqueryMap.$send.bind('utap', onSubmitMsg);
-// alert(jqueryMap.$send.html());
     jqueryMap.$form.bind('submit', onSubmitMsg);
-// alert(jqueryMap.$send);
     // return true;
   };
 

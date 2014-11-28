@@ -90,7 +90,6 @@ spa.shell = (function () {
       $acct : $container.find('.spa-shell-head-acct'),
       $nav : $container.find('.spa-shell-main-nav')
     };
-    // alert($container.find('.spa-shell-chat').height());
   };
 
   onTapAcct = function ( event ) {
@@ -114,28 +113,20 @@ spa.shell = (function () {
   };
 
   changeAnchorPart = function (arg_map) {
-// console.log('changeAnchorPart');
-// alert('changeAnchorPart');
     var anchor_map_revise = copyAnchorMap(),
      bool_return = true,
      key_name, key_name_dep;
-// console.log('after copyAnchorMap');
-// alert('after copyAnchorMap');
     //Begin merge change into anchor map
     KEYVAL:
     for (key_name in arg_map) {
-// alert(key_name);
       if (arg_map.hasOwnProperty(key_name)) {
-// alert('own ' + key_name);
         //skip dependent keys during iteration
         if (key_name.indexOf('_') === 0) {
           continue KEYVAL;
         }
 
         //update independent key value
-// alert('anchor_map_revise[' + key_name + ']:' + anchor_map_revise[key_name] + '\narg_map[' + key_name + ']:' + arg_map[key_name]);
         anchor_map_revise[key_name] = arg_map[key_name];
-// alert('anchor_map_revise[' + key_name + ']:' + anchor_map_revise[key_name]);
         //update matching dependent key
         key_name_dep = '_' + key_name;
         if (arg_map[key_name_dep]) {
@@ -146,7 +137,6 @@ spa.shell = (function () {
         }
       }
     }
-// alert('after loop:anchor_map_revise[chat]:' + anchor_map_revise.chat);
     //End merge changes into anchor map
 
     //Begin attempt to update URI ; revert if not successful
@@ -167,7 +157,6 @@ spa.shell = (function () {
 
 //------------------------------Begin event handlers------------------------
   onHashchange = function (event) {
-    // alert('here');
     var anchor_map_previous = copyAnchorMap(),
       anchor_map_proposed,
       _s_chat_previous, _s_chat_proposed,
@@ -184,26 +173,17 @@ spa.shell = (function () {
       }
       stateMap.anchor_map = anchor_map_proposed;
       // convenience vars
-  // console.log('anchor_map_previous' + anchor_map_previous);
       _s_chat_previous = anchor_map_previous._s_chat;
       _s_chat_proposed = anchor_map_proposed._s_chat;
-//alert('here2');
       //Begin adjust chat component if changed
-  // console.log('caonima');
-  // console.log('anchor_map_previous:' + anchor_map_previous);
-  // console.log('_s_chat_previous:' + _s_chat_previous);
-  // console.log('_s_chat_proposed:' + _s_chat_proposed);
       if (!anchor_map_previous || _s_chat_previous !== _s_chat_proposed) {
-  // alert('if');
         s_chat_proposed = anchor_map_proposed.chat;
         switch (s_chat_proposed) {
           case 'opened' :
-// alert('opened');
             is_ok = spa.chat.setSliderPosition('opened');
           break;
         
           case 'closed' :
-// alert('closed');
             is_ok = spa.chat.setSliderPosition('closed');
           break;
           default :
@@ -226,19 +206,12 @@ spa.shell = (function () {
   //End event handler /onHashchange/
 
   setChatAnchor = function (position_type) {
-// alert(position_type);
     return changeAnchorPart({chat : position_type});
   };
   //Begin event handler /onClickChat/
 
   onClickChat = function (event) {
-// alert(stateMap.is_chat_retracted);
 console.log('click');
-// if (stateMap.is_chat_retracted) {
-//   alert('open');
-// } else {
-//   alert('close');
-// }
     changeAnchorPart(
       {
         chat : (stateMap.is_chat_retracted ? 'open' : 'closed')
