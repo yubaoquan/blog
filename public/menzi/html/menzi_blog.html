@@ -6,8 +6,8 @@
 
 	<script src="../../common_js/ckeditor/ckeditor.js"></script>
 
-	<!--<script type="text/javascript" src="../../common_js/jquery-2.1.1.js"></script>-->
-	<!--<script src="../../common_js/jquery-ui-1.11.2.custom/jquery-ui.js"></script>-->
+	<!-- <script type="text/javascript" src="../../common_js/jquery-2.1.1.js"></script>
+	<script src="../../common_js/jquery-ui-1.11.2.custom/jquery-ui.js"></script> -->
 	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
 	<script src="http://libs.useso.com/js/jqueryui/1.10.4/jquery-ui.js"></script>
 	<script type="text/javascript" src="http://lib.sinaapp.com/js/angular.js/angular-1.2.19/angular.js"></script>
@@ -24,6 +24,8 @@
 	<script type="text/javascript" src="../js/xiaolong.js"></script>
 	<script type="text/javascript" src="../js/variable.js"></script>
 
+	<link rel="stylesheet" href="../css/18.css" />
+	<script type="text/javascript" src="18.js"></script>
 </head>
 
 <body onkeydown="BindEnter(event)" onload="pageLoad()" >
@@ -74,7 +76,7 @@
 	<div class="padding">
 		<h2 id="peiliaoList">陪聊列表</h2>
 
-		<h3 id="available">可用陪聊(请单击选择陪聊)</h3>
+		<!-- <h3 id="available">可用陪聊(请单击选择陪聊)</h3>
 		<div id="availablePeiliaos" class="online">
 			<p id="zhoumenzi" onclick="selectPeiliao(this)" title="陪聊名片加载失败">周闷子</p>
 			<p id="yujiong" onclick="selectPeiliao(this)" title='陪聊名片加载失败'>玉扃</p>
@@ -83,19 +85,44 @@
 			<p id="xiaolong" onclick="selectPeiliao(this)" title='陪聊名片加载失败'>小龙</p>
 		</div>
 		<h3 id="unavailable">开发中陪聊</h3>
-		<div class="offline" onclick="sorryInfo()">
-			<p>阿名</p>
-			<p>丁丁</p>
-			<p>贝勒</p>
-			<p>磊子</p>
-			<p>凌风</p>
-			<p>白菜</p>
-			<p>安紫...</p>
+		<div class="offline" onclick="sorryInfo()" ng-repeat="uPeiliao in uPeiliaos">
+			<p>{{uPeiliao.name}}</p>
+			
+		</div> -->
+
+		<div id="webwidget_menu_dropdown" class="webwidget_menu_dropdown">
+			<ul style="font-size: 14px;">陪聊列表
+				<li class="current">
+					可用陪聊
+					<ul id="availablePeiliaos" class='ul1'>
+						<li id="zhoumenzi" onclick="selectPeiliao(this)" title="陪聊名片加载失败">周闷子</li>
+						<li id="yujiong" onclick="selectPeiliao(this)" title='陪聊名片加载失败'>玉扃</li>
+						<li id="wuya" onclick="selectPeiliao(this)" title='陪聊名片加载失败'>乌鸦</li>
+						<li id="toto" onclick="selectPeiliao(this)" title='陪聊名片加载失败'>2TO</li>
+						<li id="xiaolong" onclick="selectPeiliao(this)" title='陪聊名片加载失败'>小龙</li>
+						<!-- <li id="aming" onclick="selectPeiliao(this)" title='陪聊名片加载失败'>阿名</li> -->
+					</ul>
+				</li>
+				<li class='li2'>
+					开发中陪聊
+					<ul class='ul1' onclick="sorryInfo()" >
+						<!-- <li>丁丁</li>
+						<li>贝勒</li>
+						<li>磊子</li>
+						<li>凌风</li>
+						<li>白菜</li>
+						<li>安紫...</li>  -->
+						<li class="red" ng-repeat="uPeiliao in uPeiliaos" >{{uPeiliao.name}}</li>
+					</ul>
+				</li>
+			</ul>
 		</div>
+
+
+
 	</div>
 	<div class="gif">
 		<img class="gay" ng-src="{{gay.imageUrl}}"/>
-		 <p>Nothing here {{'yet' + '!'}}</p>
 	</div>
 </div>
 </div>

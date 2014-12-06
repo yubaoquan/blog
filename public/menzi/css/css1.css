@@ -5,7 +5,8 @@
 }
 
 body {
-	background-image: url(../images/bg2.jpg);
+	/*background-image: url(../images/bg2.jpg);*/
+	background-color: black;
 	background-position: center;
 	background-attachment: fixed;
 }
@@ -31,6 +32,7 @@ body {
 }
 
 #page-container {
+	border-radius: 1.0em;
 	overflow:hidden;
 	width: 900px;
 	margin: auto;
@@ -42,27 +44,33 @@ body {
 }
 
 #content {
-	border: 1px solid gray;
+	/*border: 1px solid gray;*/
 	height: 300px;
 	overflow: auto;
+	background: black;
+	border-radius: 1.5em;
 }
 
 .whatUSay {
 	padding-left: 20px;
+	color: yellow;
 	/*padding-top: 5px;*/
 }
 
 .peiliaoWord {
 	padding-left: 20px;
+	color: white;
 }
 
 .singleSentence {
 	/*background-color: #B4E1A2;*/
+	color: yellow;
 	line-height: 5px;
 }
 
 .peiliaoSingleSentence {
 	line-height: 5px;
+	color: white;
 	/*background-color: #72BBA3;*/
 }
 

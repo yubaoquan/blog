@@ -84,18 +84,14 @@ function initTooltip() {
 		var selector = '#' + peiliaoID;
 		$(selector).tooltip({
 			content: peiliaoDescWrapper  ,
-			position : {
-                my: "left + 10", 
-                at: "right bottom",
-            },
-            show: {
-                effect: "slideDown",
-                duration: 180,
-            },
-            // hide: {
-            //     effect: "explode",
-            //     duration: 180,
-            // }
+			show: {
+				effect: "slideDown",
+				delay: 2
+			},
+			hide: {
+				effect: "explode",
+				delay: 1
+			}
 		});
 	}
 }
