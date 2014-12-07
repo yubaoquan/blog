@@ -47,6 +47,7 @@ function BindEnter(obj){
 function selectPeiliao(element) {
 	var bodyColor = document.bgColor;
 	currentPeiliaoElement.style.backgroundColor=bodyColor;
+	currentPeiliaoElement.className = '';
 
 	currentPeiliaoID = element.id;
 	currentPeiliao = peiliaoList[element.id];
@@ -62,6 +63,7 @@ function selectPeiliao(element) {
 	var myHeadSrc = "<img id=\"myHead\" src=\"../images/" + "user" + ".jpg\"/>";
 	document.getElementById("say2who").innerHTML = myHeadSrc + "对" + currentPeiliao.name + "说:";
 	currentPeiliaoElement = element;
+	currentPeiliaoElement.className='currentPeiliao';
 }
 
 //界面打开时的初始化工作;

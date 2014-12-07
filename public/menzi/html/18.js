@@ -9,13 +9,15 @@
             return null
         }
 
-        style="background-color: #d9d0b2; margin-right: 20px; width: 120px;";
+        var style="background-color: #d9d0b2; margin-right: 20px; width: 120px;";
         parentItems.attr("style",style);
         parentItems.filter(".current").css("background-color",'#008748');
-        style1="background-color:"+'#d9d0b2'+"; width: 120px;";
+
+        var style1="background-color: #d9d0b2; width: 120px;";
         o.find("li").children("ul").attr("style",style1);
 
         wholeMenu.css("font-size",'13px');
+        // wholeMenu.css("border-radius",'0.4em');
         parentItems.css("height",'25px');
         parentItems.children("ul").css("top",'25px');
         parentItems.children("ul").css("left","0px");
@@ -29,12 +31,15 @@
             }
         );
 
+        parentItems.children("ul").children("li").css("border-radius",'0.4em');
         parentItems.children("ul").children("li").hover(
             function(){
                 $(this).css("background-color",'#1C232E');
+                $(this).css("font-size", "2em");
                 console.log('hover');
             },
             function(){
+                $(this).css("font-size", "13px");
                 $(this).css("background-color",'#d9d0b2');//'#63B4C9'
             }
         );

@@ -1,3 +1,7 @@
+* {
+	border-radius: 0.2em;
+}
+
 .hello {
 	border: 1px solid #ccc;
 	color :blue;	
@@ -32,7 +36,7 @@ body {
 }
 
 #page-container {
-	border-radius: 1.0em;
+	border-radius: 0.5em;
 	overflow:hidden;
 	width: 900px;
 	margin: auto;
@@ -48,7 +52,7 @@ body {
 	height: 300px;
 	overflow: auto;
 	background: black;
-	border-radius: 1.5em;
+	border-radius: 0.5em;
 }
 
 .whatUSay {
@@ -97,4 +101,13 @@ body {
 	opacity: 0.8;
 	background: #19B6E1;
 	
+}
+
+.webwidget_menu_dropdown {
+	border-radius: 0.4em;
+}
+
+.currentPeiliao {
+	color: yellow;
+	font-size: 18px;
 }

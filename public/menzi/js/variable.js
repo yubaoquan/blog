@@ -1,10 +1,11 @@
 //=========================将以上角色添加到到陪聊列表中========================
-var peiliaoList = {};
-peiliaoList.zhoumenzi = zhoumenzi;
-peiliaoList.yujiong = yujiong;
-peiliaoList.wuya = wuya;
-peiliaoList.toto = toto;
-peiliaoList.xiaolong = xiaolong;
+var peiliaoList = {
+	zhoumenzi : zhoumenzi,
+	yujiong : yujiong,
+	wuya : wuya,
+	toto : toto,
+	xiaolong : xiaolong
+};
 
 //=========================全局变量============================================
 //发送信息是的快捷键方式;
