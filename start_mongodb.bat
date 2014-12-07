@@ -1,1 +1,1 @@
-D:\MongoDB\bin\mongod.exe -dbpath f:\mongo\blog
+E:\TOOLZ\mongodb\bin\mongod.exe -dbpath E:\TOOLZ\mongodb\blog
