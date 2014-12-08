@@ -55,12 +55,12 @@ function selectPeiliao(element) {
 		window.open ("selectGender.html", "newwindow", "height=250, width=300, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
 	}
 	
-	var imgFilePath = "../images/" + currentPeiliaoID + ".jpg";
+	var imgFilePath = "images/" + currentPeiliaoID + ".jpg";
 	var imgElem = "<img id=\"a\" src=\" "+ imgFilePath+"\"/>";
 
 	document.getElementById("hello").innerHTML = imgElem + currentPeiliao.hello;
 	element.style.backgroundColor="#1ec5e5";
-	var myHeadSrc = "<img id=\"myHead\" src=\"../images/" + "user" + ".jpg\"/>";
+	var myHeadSrc = "<img id=\"myHead\" src=\"images/" + "user" + ".jpg\"/>";
 	document.getElementById("say2who").innerHTML = myHeadSrc + "对" + currentPeiliao.name + "说:";
 	currentPeiliaoElement = element;
 	currentPeiliaoElement.className='currentPeiliao';

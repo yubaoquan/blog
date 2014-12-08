@@ -11,6 +11,9 @@ var menziApp = angular.module('menziApp', []);
   $http.get('data/a.json').success(function(data) {
     $scope.uPeiliaos = data;
   });
- $scope.gay =     {"imageUrl": "../images/bili.gif"};
+  $scope.gay = {
+  	"imageUrl": "images/bili.gif"
+  };
+  $scope.srcUrl = 'header.html';
  }]);
 
