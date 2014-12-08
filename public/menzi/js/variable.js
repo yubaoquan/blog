@@ -4,7 +4,8 @@ var peiliaoList = {
 	yujiong : yujiong,
 	wuya : wuya,
 	toto : toto,
-	xiaolong : xiaolong
+	xiaolong : xiaolong,
+	aming : aming
 };
 
 //=========================全局变量============================================
