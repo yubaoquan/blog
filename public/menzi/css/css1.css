@@ -82,47 +82,6 @@ body {
 	/*background-color: #72BBA3;*/
 }
 
-.header {
-	background-color: black;
-	color: white;
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	right: 0px;
-	z-index: 1000;
-}
-
-.header a {
-color: white;
-}
-
-.header ul{
-	padding: 0;
-	height:38px;
-	width:980px;
-	border:1px solid #000;
-	text-align:center;
-	font-weight:bold;
-	margin:auto auto 0px auto;
-	
-}
-
-.header ul li{
-	float: left;
-	list-style-type:none;
-	margin:5px;
-	/*border: 1px solid white;*/
-}
-
-.search {
-	color: yellow;
-	margin-left: 180px;
-}
-/*.headerPadding{
-	margin:5px auto auto auto;
-	padding: 15px;
-}*/
-
 #iSay {
 	resize: none;
 }
@@ -142,4 +101,5 @@ color: white;
 .currentPeiliao {
 	color: yellow;
 	font-size: 18px;
+	font-weight: bold;
 }

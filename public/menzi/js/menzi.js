@@ -47,7 +47,7 @@ function BindEnter(obj){
 function selectPeiliao(element) {
 	var bodyColor = document.bgColor;
 	currentPeiliaoElement.style.backgroundColor=bodyColor;
-	currentPeiliaoElement.className = '';
+	currentPeiliaoElement.className = 'aPeiliao';
 
 	currentPeiliaoID = element.id;
 	currentPeiliao = peiliaoList[element.id];

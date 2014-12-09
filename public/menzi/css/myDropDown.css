@@ -1,0 +1,19 @@
+.myDropDown ul{
+    padding: 0px;
+    margin: 0px;
+    font-family:Arial;
+    font-size: 15px;
+    margin-right: 20px; 
+    width: 120px;
+    border-radius: 1px;
+    
+
+}
+
+.myDropDown ul li{
+    display: none;
+    list-style: none;
+    position: relative;
+    text-align: center;
+    height: 30px;
+}
