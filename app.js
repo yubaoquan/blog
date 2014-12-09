@@ -30,14 +30,15 @@ app.use(express.bodyParser({ keepExtensions: true, uploadDir: './public/images' 
 app.use(express.methodOverride());
 
 app.use(express.cookieParser());
-app.use(express.session({
-  secret: settings.cookieSecret,
-  key: settings.db,//cookie name
-  cookie: {maxAge: 1000 * 60},//30 days
-  store: new MongoStore({
-    db: settings.db
-  })
-}));
+//coding.net目前不提供mongo服务了,所以注释掉mongo调用
+// app.use(express.session({
+//   secret: settings.cookieSecret,
+//   key: settings.db,//cookie name
+//   cookie: {maxAge: 1000 * 60},//30 days
+//   store: new MongoStore({
+//     db: settings.db
+//   })
+// }));
 
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
