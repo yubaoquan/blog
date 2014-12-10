@@ -13,31 +13,24 @@
     o.click(
 
       function () {
-        console.info('slideDown');
-        parentItems.slideDown("fast");
-       }//,
-      // function () {
-      //   console.info('slideDown');
-      //   parentItems.slideUp("fast");
-      // }
-    );
-
-    $(document).click(function(event){
-    alert($(event.target));
-});
-
-    o.blur(
-      function () {
-        console.info('blur');
+        if (o.attr('status') === 'closed') {
+          // console.info('slideDown');
+          parentItems.slideDown("fast");
+          o.attr('status', 'opened');
+          return false;
+        }
       }
     );
-    wholeMenu.click(
-      function () {
-        console.log('click');
+
+    $(document).click(function (event) {
+      // console.info(o.attr('status'));
+      if (o.attr('status') === 'opened') {
+        // console.info('slide up');
+        parentItems.slideUp("fast");
+        o.attr('status', 'closed');
       }
-      
-    );
-  }
+    });
+  };
 }(jQuery));
 
 $(function () {

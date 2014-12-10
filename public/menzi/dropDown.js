@@ -17,7 +17,7 @@
         $(this).children("ul").slideUp("fast");
       }
     );
-  }
+  };
 }(jQuery));
 
 $(function () {

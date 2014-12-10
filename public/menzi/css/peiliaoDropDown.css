@@ -25,17 +25,16 @@
     padding: 0px;
     margin: 0px;
     font-family:Arial;
-    font-size: 15px;
+    font-size: 1em;
     margin-right: 20px; 
     width: 120px;
     border-radius: 1px;
+    line-height: 2em;
 
 }
 
 .webwidget_menu_dropdown ul li{
-    /*border-radius:8px;*/
-    /*float: left;*/
-    /*font-weight: bold;*/
+    font-size: 1.2em;
     list-style: none;
     position: relative;
     text-align: center;
@@ -47,23 +46,25 @@
     position: absolute;
     z-index: 9999;
     display: none;
-    margin-top: 0.8em;
+    margin-top: 0;
     left: 0px;
     height: 25px;
 }
 
 .webwidget_menu_dropdown ul li ul li{
     border-radius:0.2em;
-    border: 1px solid black;
+    border-bottom: 1px solid #CEFDFD;
     margin: 0px;
     float: none;
     word-wrap:break-word;
     cursor: pointer;
     height: 25px;
+    font-size: 1em;
+    line-height: 1.5em;
 }
 
  .red {
-    background: #00aacc;
+    background: #19F8F8;
     border-radius: 0.4em;
  }
 
