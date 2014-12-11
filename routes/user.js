@@ -21,19 +21,24 @@ module.exports = function (app) {
         console.log('fail to get name');
         return null;
       } else {
-        console.log('reply:' + data.toString());
-        myname = data.toString();
+        if (data === null) {
+          console.log('no myname data');
+          myname = 'null';
+        } else {
+          myname = data;
+        }
+        console.log('reply:' + data);
         console.log('data:' + myname);
-        myname = data.toString();
-        // response.writeHead(200, {"Content-Type": "text/plain;charset=utf-8"});
-        // response.write(myname);//可以获得数据库中的myname;
-        // response.end();
+        
+        response.writeHead(200, {"Content-Type": "text/plain;charset=utf-8"});
+        response.write(myname);//可以获得数据库中的myname;
+        response.end();
 
       }
     });
-     console.log('data:' + myname.data);
-     response.writeHead(200, {"Content-Type": "text/plain;charset=utf-8"});
-     response.write(myname);//undefined
-     response.end();
+     // console.log('data:' + myname.data);
+     // response.writeHead(200, {"Content-Type": "text/plain;charset=utf-8"});
+     // response.write(myname);//undefined
+     // response.end();
   });
 };
