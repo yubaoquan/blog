@@ -41,4 +41,11 @@ module.exports = function (app) {
      // response.write(myname);//undefined
      // response.end();
   });
+
+  app.get('/ajax', function (req, res) {
+    res.json({
+      data : 'success',
+      name : 'dengqingqlin'
+  });
+  });
 };

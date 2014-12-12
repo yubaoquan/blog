@@ -20,14 +20,14 @@ module.exports = function(app) {
 
 	app.get('/menzi/', function (req, res, next) {
 		console.log('menzi2');
-		req.url = '/menzi/html/menzi.html';
+		req.url = '/menzi/menzi.html';
 		next();
 	});
 
 	app.get('/menzi/*.html', function (req, res, next) {
 		array = req.url.split('/');
 		var page = array[array.length - 1];
-		req.url = '/menzi/html/' + page;
+		req.url = '/menzi/' + page;
 		console.log(page);
 		next();
 	});
@@ -40,11 +40,11 @@ module.exports = function(app) {
 	});
 	
 
-	app.get('/js/*',function (req, res) {
-		console.log('default router');
-		var url = req.url;
-		res.redirect('/menzi' + url);
-	});
+	// app.get('/js/*',function (req, res) {
+	// 	console.log('default router');
+	// 	var url = req.url;
+	// 	res.redirect('/menzi' + url);
+	// });
 
 	app.get('/css/*',function (req, res) {
 		console.log('default router');
