@@ -34,83 +34,71 @@
 	
 	<div ng-include="srcUrl"></div>
 	<div id="page-container">
-		
 		<div class="mainContent">
-
 			<div class="hello" >
-
 				<p id="hello">
 					<img id="a" src="images/zhoumenzi.jpg" />
 					你好,我是周闷子 ⊙ˍ⊙ 很高兴陪你聊天
 				</p>
-
 			</div>
 			<div class="padding">
 				<div class="sentence">
 					<div id="content"></div>
-					<!-- <input type="hidden" id="sex"></input>
-				-->
-				<p id="say2who">对闷子说:</p>
-				<div>
-					<textarea rows="6" cols="65" id="iSay" name="editor1"></textarea>
+					<p id="say2who">对闷子说:</p>
+					<div>
+						<textarea rows="6" cols="65" id="iSay" name="editor1"></textarea>
+					</div>
+					<input id="ok" type="submit" value="说好了" onclick="talk()"/>
+					<p>
+						<input type="radio" name="sendMethod" value="en" onclick="changeSendMethod(this)"/>
+						Enter发送
+					</p>
+					<p>
+						<input type="radio" name="sendMethod" value="ce" onclick="changeSendMethod(this)" checked="checked"/>
+						Ctrl+Enter发送
+					</p>
+					<p>
+						<input type="radio" name="sendMethod" value="ck" onclick="changeSendMethod(this)" />
+						使用CKEditor
+					</p>
 				</div>
-				<input id="ok" type="submit" value="说好了" onclick="talk()"></input>
-			<!-- <form>
-		-->
-		<p>
-			<input type="radio" name="sendMethod" value="en" onclick="changeSendMethod(this)"/>
-			Enter发送
-		</p>
-		<p>
-			<input type="radio" name="sendMethod" value="ce" onclick="changeSendMethod(this)" checked="checked"/>
-			Ctrl+Enter发送
-		</p>
-		<p>
-			<input type="radio" name="sendMethod" value="ck" onclick="changeSendMethod(this)" />
-			使用CKEditor
-		</p>
-		<!-- </form>--></div>
-	</div>
-</div>
-<div id="sidebar-a">
-	<div class="padding">
-		<h2 id="peiliaoList">陪聊列表</h2>
-
-		<div id="webwidget_menu_dropdown" class="webwidget_menu_dropdown">
-			<ul style="font-size: 14px;">
-				<li class="li1">
-					可用陪聊
-					<ul id="availablePeiliaos" class='ul1'>
-						<li class="aPeiliao" id="zhoumenzi" onclick="selectPeiliao(this)" title="陪聊名片加载失败">周闷子</li>
-						<li class="aPeiliao" id="yujiong" onclick="selectPeiliao(this)" title='陪聊名片加载失败'>玉扃</li>
-						<li class="aPeiliao" id="wuya" onclick="selectPeiliao(this)" title='陪聊名片加载失败'>乌鸦</li>
-						<li class="aPeiliao" id="toto" onclick="selectPeiliao(this)" title='陪聊名片加载失败'>2TO</li>
-						<li class="aPeiliao" id="xiaolong" onclick="selectPeiliao(this)" title='陪聊名片加载失败'>小龙</li>
-						<li class="aPeiliao" id="aming" onclick="selectPeiliao(this)" title='陪聊名片加载失败'>阿名</li>
-					</ul>
-				</li>
-				<li class='li2'>
-					开发中陪聊
-					<ul class='ul1' onclick="sorryInfo()" >
-						<!-- <li>丁丁</li>
-						<li>贝勒</li>
-						<li>磊子</li>
-						<li>凌风</li>
-						<li>白菜</li>
-						<li>安紫...</li>  -->
-						<li class="red" ng-repeat="uPeiliao in uPeiliaos" >{{uPeiliao.name}}</li>
-					</ul>
-				</li>
-			</ul>
+			</div>
 		</div>
-
-
-
+		<div id="sidebar-a">
+			<div class="padding">
+				<h2 id="peiliaoList">陪聊列表</h2>
+				<div id="webwidget_menu_dropdown" class="webwidget_menu_dropdown">
+					<ul style="font-size: 14px;">
+						<li class="li1">
+							可用陪聊
+							<ul id="availablePeiliaos" class='ul1'>
+								<li class="aPeiliao" id="zhoumenzi" onclick="selectPeiliao(this)" title="陪聊名片加载失败">周闷子</li>
+								<li class="aPeiliao" id="yujiong" onclick="selectPeiliao(this)" title='陪聊名片加载失败'>玉扃</li>
+								<li class="aPeiliao" id="wuya" onclick="selectPeiliao(this)" title='陪聊名片加载失败'>乌鸦</li>
+								<li class="aPeiliao" id="toto" onclick="selectPeiliao(this)" title='陪聊名片加载失败'>2TO</li>
+								<li class="aPeiliao" id="xiaolong" onclick="selectPeiliao(this)" title='陪聊名片加载失败'>小龙</li>
+								<li class="aPeiliao" id="aming" onclick="selectPeiliao(this)" title='陪聊名片加载失败'>阿名</li>
+							</ul>
+						</li>
+						<li class='li2'>
+							开发中陪聊
+							<ul class='ul1' onclick="sorryInfo()" >
+								<!-- <li>丁丁</li>
+								<li>贝勒</li>
+								<li>磊子</li>
+								<li>凌风</li>
+								<li>白菜</li>
+								<li>安紫...</li>  -->
+								<li class="red" ng-repeat="uPeiliao in uPeiliaos" >{{uPeiliao.name}}</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="gif">
+				<img class="gay" ng-src="{{gay.imageUrl}}"/>
+			</div>
+		</div>
 	</div>
-	<div class="gif">
-		<img class="gay" ng-src="{{gay.imageUrl}}"/>
-	</div>
-</div>
-</div>
 </body>
 <html>
